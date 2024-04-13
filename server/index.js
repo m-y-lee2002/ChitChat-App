@@ -22,3 +22,8 @@ connect();
 app.listen(8000, () => {
     console.log("Server connected on port 8000");
 });
+
+app.get('/api/get', async(req, res)=>{
+    const result = await User.find({});
+    res.send(result);
+})
