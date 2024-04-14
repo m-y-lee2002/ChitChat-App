@@ -1,10 +1,8 @@
-
+import Login from "./login.js";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Login Page</h1>
-      </header>
+      <Login/>
     </div>
   );
 }
