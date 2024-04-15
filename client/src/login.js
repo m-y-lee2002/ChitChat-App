@@ -1,11 +1,26 @@
-import React,{useState} from "react";
+import React, { useState } from 'react';
+import { getAPI } from './api/getAPI';
 
-function login() {
-    const[username, setUsername] = useState("");
-    const[password, setPassword] = useState("");
-
+function Login() {
+    const [username, setUsername] = useState("name");
+    const [password, setPassword] = useState("name");
     const submitHandler = ()=>{
-        
+      let found = false;
+        getAPI('')
+        .then(data=>{
+            data.forEach(tuple=>{
+              if(username === tuple.username && password === tuple.password){
+                found = true;
+              }
+            })
+            if(found){
+
+            }else{
+              alert("Invalid Login");
+            }
+        }).catch(error => {
+          console.error(error);
+        });
     };
     return (
       <div className="login">
@@ -24,5 +39,5 @@ function login() {
     );
   }
   
-  export default login;
+  export default Login;
   

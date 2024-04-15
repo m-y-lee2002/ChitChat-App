@@ -1,4 +1,4 @@
-import Login from "./login.js";
+import Login from "./Login.js";
 function App() {
   return (
     <div className="App">
