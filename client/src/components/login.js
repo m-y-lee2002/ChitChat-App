@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { getAPI } from './api/getAPI';
+import { getAPI } from '../api/getAPI';
 import {SHA1} from 'crypto-js';
 
 function Login() {
