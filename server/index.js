@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const app = express();
 const User = require('./schema_Models/user.js');
 const Friends = require('./schema_Models/friend.js');
+const cors = require('cors');
+app.use(cors());
 app.use(express.json());
 
 const uri = "mongodb+srv://admin:admin123@friendscluster.x4xg0ne.mongodb.net/ChitChatDB?retryWrites=true&w=majority&appName=friendsCluster";

@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getAPI } from './api/getAPI';
+import {SHA1} from 'crypto-js';
 
 function Login() {
+    const navigate = useNavigate();
     const [username, setUsername] = useState("name");
     const [password, setPassword] = useState("name");
-    const submitHandler = ()=>{
+    const submitHandler = (event)=>{
+      event.preventDefault();
       let found = false;
         getAPI('')
         .then(data=>{
-            data.forEach(tuple=>{
-              if(username === tuple.username && password === tuple.password){
+            data.forEach((tuple)=>{
+              if(username === tuple.username && SHA1(password).toString() === tuple.password){
                 found = true;
+                navigate('./mainpage');
               }
-            })
+            });
             if(found){
+              console.log("User Found");
 
             }else{
+              console.log(SHA1(password).toString());
               alert("Invalid Login");
             }
         }).catch(error => {
@@ -35,6 +43,7 @@ function Login() {
             <br/>
             <button type="submit">Submit</button>
         </form>
+        <Link to="/register">create an account</Link> 
       </div>
     );
   }
