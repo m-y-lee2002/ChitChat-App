@@ -37,3 +37,15 @@ app.post('/api/post', async(req,res)=>{
     await newUser.save();
     res.status(201);
 })
+
+app.post('/api/post/friend', async(req,res)=>{
+    const request_info = req.body;
+    const newFriend = new Friends(request_info); 
+    await newFriend.save();
+    res.status(201);
+})
+
+app.get('/api/get/friends', async(req,res)=>{
+    const result = await Friends.find({});
+    res.send(result);
+})
