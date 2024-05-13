@@ -16,6 +16,7 @@ function Login() {
             data.forEach((tuple)=>{
               if(username === tuple.username && SHA1(password).toString() === tuple.password){
                 found = true;
+                localStorage.setItem('username',username);
                 navigate('./mainpage');
               }
             });

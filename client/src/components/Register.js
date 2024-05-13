@@ -5,7 +5,6 @@
     import { getAPI } from "../api/getAPI";
     function Register(){
         const navigate = useNavigate();
-        const [email, setEmail] = useState('');
         const [username, setUsername] = useState('');
         const [password, setPassword] = useState('');
         const [verifyPassword, setVerifyPassword] = useState('');
@@ -33,6 +32,7 @@
                         };
                         postAPI(userInfo,'')
                         alert("Account Created");
+                        localStorage.setItem('username',username);
                         navigate('../mainpage');
                     }
                 }).catch(error => {
@@ -48,9 +48,6 @@
             <div className="register">
                 <h1>Register</h1>
                 <form onSubmit={submitHandler}>
-                Email: <input type= "text" onChange={(e)=>{setEmail(e.target.value)}}/>
-                <br/>
-                <br/>
                 Username: <input type="text" onChange={(e) =>{setUsername(e.target.value)}}/>
                 <br/>
                 <br/>
