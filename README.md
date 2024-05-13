@@ -1,5 +1,6 @@
 # ChitChat-App
 To-do List:
+
 Olivia: Profile Page & button leading to profile from main page (LocalStorage, getRequest, {}, HTML, Javascript)  
 
 STATUS: PENDING
