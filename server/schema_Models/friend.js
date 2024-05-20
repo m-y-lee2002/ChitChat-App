@@ -5,6 +5,10 @@ const friend = new Schema({
         type: Number,
         require: true
     },
+    user:{
+        type: String,
+        require: true
+    },
     imagePic:
     {
         type: String,
@@ -20,4 +24,4 @@ const friend = new Schema({
     }
 
 });
-module.exports =  mongoose.model('friendInfo', friend);
+module.exports =  mongoose.model('friendinfos', friend);
