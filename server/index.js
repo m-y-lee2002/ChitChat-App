@@ -45,7 +45,9 @@ app.post('/api/post/friend', async(req,res)=>{
     res.status(201);
 })
 
-app.get('/api/get/friends', async(req,res)=>{
-    const result = await Friends.find({});
+app.get('/api/get/friends/:username', async(req,res)=>{
+    const username = req.params.username;
+    console.log(username);
+    const result = await Friends.find({user: username});
     res.send(result);
 })
