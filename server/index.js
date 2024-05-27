@@ -51,3 +51,8 @@ app.get('/api/get/friends/:username', async(req,res)=>{
     const result = await Friends.find({user: username});
     res.send(result);
 })
+app.delete('/api/delete/friends/:friendID',async(req,res)=>{
+    const targetID = req.params.friendID;
+    const result = await Friends.deleteOne({fid: targetID});
+    res.send(result);
+})
