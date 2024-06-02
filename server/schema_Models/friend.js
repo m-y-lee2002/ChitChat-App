@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 const Schema = mongoose.Schema;
 const friend = new Schema({
     fid:{
@@ -24,4 +25,5 @@ const friend = new Schema({
     }
 
 });
+friend.plugin(AutoIncrement, {inc_field:'fid'});
 module.exports =  mongoose.model('friendinfos', friend);
