@@ -14,16 +14,16 @@ class MainPage extends Component {
         this.logOut = this.logOut.bind(this);
         this.deleteFriend = this.deleteFriend.bind(this);
         this.fetchFriends = this.fetchFriends.bind(this);
+        this.toCreateFriend = this.toCreateFriend.bind(this);
     }
     logOut(){
         localStorage.clear();
         this.props.navigate('../login');
     }
-    deleteFriend(targetID){
+    async deleteFriend(targetID){
         console.log(targetID);
-        deleteAPI('/friends/' + targetID);
+        await deleteAPI('/friends/' + targetID);
         this.fetchFriends();
-        //this.props.navigate('../mainpage');
     }
     fetchFriends(){
         const { user } = this.state;
@@ -38,6 +38,9 @@ class MainPage extends Component {
                 });
         }    
     }
+    toCreateFriend(){
+        this.props.navigate('../createFriend');
+    }
     componentDidMount() {
         this.fetchFriends();
     }
@@ -45,6 +48,7 @@ class MainPage extends Component {
     render() {
         const { friends, user } = this.state;
         return (
+
             <div className="mainpage">
                 <button onClick={this.logOut}>Back</button>
                 <h1>{user}'s Friends</h1>
@@ -53,7 +57,7 @@ class MainPage extends Component {
                       <li key={friend.fid}>{friend.fname}<button onClick={() => this.deleteFriend(friend.fid)}>Delete</button></li>
                     ))}
                 </ul>
-                <button>Add Friend</button>
+                <button onClick={this.toCreateFriend}>Add Friend</button>
             </div>
         );
     }
