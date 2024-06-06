@@ -22,6 +22,18 @@ const friend = new Schema({
     bday:{
         type: String,
         require: true
+    },
+    description:{
+        type: String,
+        require: false
+    },
+    phoneNumber:{
+        type: String,
+        require: false
+    },
+    goalSet:{
+        type: Boolean,
+        require: true
     }
 
 });
