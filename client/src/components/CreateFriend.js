@@ -7,7 +7,8 @@ class CreateFriend extends Component{
         this.state = {
             user: localStorage.getItem('username'),
             friendName: "-1",
-            friendBirthday: "-1"
+            friendBirthday: "-1",
+            friendGoal: false
         };
         this.submitHandler = this.submitHandler.bind(this);
         this.setFName = this.setFName.bind(this);
@@ -24,7 +25,7 @@ class CreateFriend extends Component{
     }
     submitHandler(event){
         event.preventDefault();
-        const{user, friendName,friendBirthday} = this.state;
+        const{user, friendName,friendBirthday,friendGoal} = this.state;
         if(friendName === "-1"){
             alert("Please enter a name for your friend");
         }else{
@@ -32,7 +33,8 @@ class CreateFriend extends Component{
                 user: user,
                 imagePic: "example1",
                 fname: friendName,
-                bday: friendBirthday
+                bday: friendBirthday,
+                goalSet:friendGoal
             }
             postAPI(newFriend,'/friend');
             alert("Friend has been created.");

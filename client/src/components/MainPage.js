@@ -54,7 +54,7 @@ class MainPage extends Component {
                 <h1>{user}'s Friends</h1>
                 <ul>
                     {friends.map(friend => (
-                      <li key={friend.fid}>{friend.fname}<button onClick={() => this.deleteFriend(friend.fid)}>Delete</button></li>
+                    <li key={friend.fid}> <button>Edit</button> {friend.fname}<button onClick={() => this.deleteFriend(friend.fid)}>Delete</button></li>
                     ))}
                 </ul>
                 <button onClick={this.toCreateFriend}>Add Friend</button>
