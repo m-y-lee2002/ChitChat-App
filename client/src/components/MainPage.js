@@ -15,6 +15,11 @@ class MainPage extends Component {
         this.deleteFriend = this.deleteFriend.bind(this);
         this.fetchFriends = this.fetchFriends.bind(this);
         this.toCreateFriend = this.toCreateFriend.bind(this);
+        this.editFriend = this.editFriend.bind(this);
+    }
+    editFriend(targetFriend){
+        localStorage.setItem('targetFriend',JSON.stringify(targetFriend));
+        this.props.navigate('../editFriend');
     }
     logOut(){
         localStorage.clear();
@@ -39,6 +44,7 @@ class MainPage extends Component {
         }    
     }
     toCreateFriend(){
+        
         this.props.navigate('../createFriend');
     }
     componentDidMount() {
@@ -54,7 +60,7 @@ class MainPage extends Component {
                 <h1>{user}'s Friends</h1>
                 <ul>
                     {friends.map(friend => (
-                    <li key={friend.fid}> <button>Edit</button> {friend.fname}<button onClick={() => this.deleteFriend(friend.fid)}>Delete</button></li>
+                    <li key={friend.fid}> <button onClick={() => this.editFriend(friend)}>Edit</button> {friend.fname}<button onClick={() => this.deleteFriend(friend.fid)}>Delete</button></li>
                     ))}
                 </ul>
                 <button onClick={this.toCreateFriend}>Add Friend</button>
