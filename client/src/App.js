@@ -4,6 +4,7 @@ import Register from "./components/Register.js";
 import CoverPage from "./components/CoverPage.js"
 import LONavBar from "./components/LoggedOutNavBar.js"
 import CreateFriend from"./components/CreateFriend.js";
+import EditFriend from "./components/EditFriend.js";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path = "/mainpage" element = {<MainPage/>}/>
               <Route path = "/register" element = {<Register/>}/>
               <Route path = "/createFriend" element = {<CreateFriend/>}/>
+              <Route path = "/editFriend" element = {<EditFriend/>}/>
           </Routes>
       </Router>
     </div>
